@@ -1,12 +1,12 @@
 import css from "./App.module.css"
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./components/Navigation/Navigation"
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Navigation from "../Navigation/Navigation.jsx"
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage.jsx";
 
-const HomePage = lazy(() => import("../src/pages/HomePage/HomePage.jsx"));
-const Catalog = lazy(() => import("../src/pages/Catalog/Catalog.jsx"));
-const Favorites = lazy(() => import("../src/pages/Favorites/Favorites.jsx"));
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
+const Catalog = lazy(() => import("../../pages/Catalog/Catalog.jsx"));
+const Favorites = lazy(() => import("../../pages/Favorites/Favorites.jsx"));
 
 function App() {
 
