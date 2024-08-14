@@ -1,11 +1,13 @@
 import CamperItem from "../CamperItem/CamperItem";
-import items from "../../../campers.json"
+import css from "./CamperList.module.css"
+import items from "../../../campers.json";
+
 
 const CamperList = () => {
 
 
     return (
-      <ul>
+      <ul className={css.list}> 
         {items.map((item) => {
           return (
             <li key={item._id}>

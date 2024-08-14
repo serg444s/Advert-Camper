@@ -9,13 +9,16 @@ const CamperItem = ({ item }) => {
     
     return (
       <div className={css.container}>
-        <div>
+        <div className={css.imgwrap}>
             <img src={item.gallery[0]}/>
         </div>
-        <div>
+        <div className={css.item}>
             <h2>{item.name}</h2>
             <h3>{formatPrice(item.price)}</h3>
             <IconSvg iconName={"star"}/>
+            <p className={css.text}>{item.description}</p>
+            <button>Load More</button>
+
         </div>
       </div>
     );
