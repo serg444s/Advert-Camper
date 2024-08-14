@@ -1,3 +1,5 @@
+@import url('/src/utils//variables.css');
+
 
 .container {
     border: 1px solid rgba(16, 24, 40, 0.2);
@@ -7,6 +9,7 @@ max-width: 888px;
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
+    margin-bottom: 8px;
 
 }
 
@@ -58,10 +61,8 @@ color: var(--gray);
 
 .location {
     display: flex;
-
-    svg {
-        width: 16px;
-        height: 16px;
-
-    }
+    gap: 16px;
+margin-bottom: 24px;
+align-items: center;
+    
 }
