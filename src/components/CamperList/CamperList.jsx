@@ -5,7 +5,6 @@ import items from "../../../campers.json";
 
 const CamperList = () => {
 
-
     return (
       <ul className={css.list}> 
         {items.map((item) => {

@@ -3,6 +3,9 @@ import FilterBar from "../../components/FilterBar/FilterBar";
 import css from "./Catalog.module.css"
 
 const Catalog = () => { 
+
+  
+
     return <div className={css.container}> 
         <FilterBar/>
         <CamperList/>

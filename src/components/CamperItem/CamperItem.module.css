@@ -7,6 +7,29 @@ max-width: 888px;
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
+
+}
+
+.title {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    h2, h3 {
+font-weight: 600;
+font-size: 24px;
+line-height: 1.25;
+    }
+
+    h3 {
+        margin-left: auto;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 11px;
+    }
 }
 
 .imgwrap {
@@ -15,10 +38,10 @@ height: 310px;
 border-radius: 10px;
 overflow: hidden;
 
-img {
-    width: 100%;
-    object-fit: cover;
 
+img {
+    object-fit: cover;
+    height: 100%;
 }
 }
 
@@ -31,4 +54,14 @@ font-weight: 400;
 font-size: 16px;
 line-height: 1.5;
 color: var(--gray);
+}
+
+.location {
+    display: flex;
+
+    svg {
+        width: 16px;
+        height: 16px;
+
+    }
 }
