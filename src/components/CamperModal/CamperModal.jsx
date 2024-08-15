@@ -60,6 +60,7 @@ const customStyles = {
             <button onClick={onReviews}>Reviews</button>
             <button onClick={onFeatures}>Features</button>
           </div>
+          <div className={css.line}></div>
           {visible === "reviews" && <ReviewList reviews={item.reviews}/>}
           {visible === "features" && <Features item={item}/>}
         </Modal>
