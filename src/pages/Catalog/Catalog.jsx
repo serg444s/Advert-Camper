@@ -28,14 +28,19 @@ const Catalog = () => {
       }, [dispatch, page]);
 
     return <div>
+    {loading && <Loader/>}
+    {error && <p>Sorry. Sone went wrong...</p>}
     <div className={css.container}> 
-{loading && <Loader/>}
-{error && <p>Sorry. Sone went wrong...</p>}
+
 
         <FilterBar/>
+        <div className={css.list}> 
         <CamperList/>
+        {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
+
+        </div>
     </div>
-    {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
+    
 
     </div>
     

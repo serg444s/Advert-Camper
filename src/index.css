@@ -64,3 +64,15 @@ html {
 .modal-open {
   overflow: hidden;
 }
+
+::-webkit-scrollbar {
+  background-color: white;
+  height: 8px;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9d9d9;;
+  border-radius: 7px;
+  height: 8px;
+}

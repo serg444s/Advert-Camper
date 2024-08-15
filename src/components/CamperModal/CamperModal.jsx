@@ -1,5 +1,6 @@
 import Modal from "react-modal";
 import css from "./CamperModal.module.css"
+import ReviewList from "../ReviewList/ReviewList";
 
 const customStyles = {
     content: {
@@ -43,7 +44,8 @@ const customStyles = {
       {item.gallery.length > 0 && ImageGallery(item.gallery)}
     </div>
           <p className={css.text}>Text{item.description}</p>
-          
+          <ReviewList reviews={item.reviews}/>
+
         </Modal>
         </div>
        
