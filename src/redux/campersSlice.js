@@ -10,23 +10,45 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
+// const campersSlice = createSlice({
+//   name: "campers",
+//   initialState: {
+//     items: [],
+//     loading: false,
+//     error: null,
+//   },
+//   extraReducers: (builder) => {
+//     builder
+//       .addCase(fetchCampers.pending, handlePending)
+//       .addCase(fetchCampers.fulfilled, (state, action) => {
+//         state.loading = false;
+//         state.error = null;
+//         state.items = action.payload;
+//       })
+//       .addCase(fetchCampers.rejected, handleRejected)
+//   },
+// });
+
 const campersSlice = createSlice({
-  name: "campers",
+  name: 'campers',
   initialState: {
-    items: [],
-    loading: false,
-    error: null,
+  campers: [],
+ loading: false,
+ error: null,
   },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, handlePending)
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.items = action.payload;
+        state.campers = action.payload;
       })
-      .addCase(fetchCampers.rejected, handleRejected)
+      .addCase(fetchCampers.rejected, handleRejected);
   },
 });
+
+export default campersSlice.reducer;
 
 export const campersReducer = campersSlice.reducer;

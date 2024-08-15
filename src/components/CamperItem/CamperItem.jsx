@@ -38,9 +38,7 @@ const CamperItem = ({ item }) => {
 <IconSvg width={16} height={16} iconName={"location"} />
 {item.location}
 </a>
-        </div>
-            
-            <p className={css.text}>{item.description}</p>
+        </div><p className={css.text}>{item.description}</p>
             <button >Load More</button>
 
         </div>
