@@ -3,10 +3,14 @@ import { formatPrice } from "../../utils/formatPrice";
 import IconSvg from "../IconSvg/IconSvg";
 import css from "./CamperItem.module.css"
 import CamperModal from "../CamperModal/CamperModal";
+import { changeFavorite } from "../../redux/favouriteSlice";
+import { useDispatch } from "react-redux";
 
 const CamperItem = ({ item }) => {
 
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+
 
   const openModal = () => {
     setShowModal(true);
@@ -26,6 +30,11 @@ const CamperItem = ({ item }) => {
       return parts;
     }
   }
+
+  const onFavoriteAdd = (obj) => {
+    dispatch(changeFavorite(obj));
+    
+  };
   
   const renderListItems = (obj) => {
         return (<ul className={css.details}>
@@ -51,7 +60,7 @@ const CamperItem = ({ item }) => {
         <div className={css.title}>
             <h2>{item.name}</h2>
             <h3>{formatPrice(item.price)}</h3>
-            <IconSvg iconName={"hart"} />
+            <button onClick={()=>{onFavoriteAdd(item)}} className={css.add}><IconSvg iconName={"hart"} /></button>
         </div>
 
         <div className={css.location}>

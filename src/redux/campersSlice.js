@@ -50,6 +50,6 @@ const campersSlice = createSlice({
   },
 });
 
-export default campersSlice.reducer;
+// export default campersSlice.reducer;
 
 export const campersReducer = campersSlice.reducer;

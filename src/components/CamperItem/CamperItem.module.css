@@ -32,7 +32,14 @@ line-height: 1.25;
         width: 24px;
         height: 24px;
         margin-left: 11px;
+        cursor: pointer;
     }
+}
+
+.add {
+    background-color: transparent;
+    outline: none;
+    border: none;
 }
 
 .imgwrap {

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CamperList from "../../components/CamperList/CamperList";
 import FilterBar from "../../components/FilterBar/FilterBar";
 import css from "./Catalog.module.css"
-import { getCampersError, getCampersStatus } from "../../redux/selectors";
+import { getCampersError, getCampersStatus, selectFilteredCampers } from "../../redux/selectors";
 import Loader from "../../components/Loader/Loader";
 import { useEffect, useState } from "react";
 import { fetchCampers } from "../../redux/operations";
@@ -20,6 +20,7 @@ const Catalog = () => {
       };
       
 
+      const items = useSelector(selectFilteredCampers);
 
 
 
@@ -35,7 +36,7 @@ const Catalog = () => {
 
         <FilterBar/>
         <div className={css.list}> 
-        <CamperList/>
+        <CamperList items={items}/>
         {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
         </div>
