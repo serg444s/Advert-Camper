@@ -44,6 +44,7 @@ const campersSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.campers = action.payload;
+        // state.campers = [...state.campers, ...action.payload];
       })
       .addCase(fetchCampers.rejected, handleRejected);
   },

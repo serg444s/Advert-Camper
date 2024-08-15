@@ -1,0 +1,26 @@
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 10px;
+
+}
+
+
+
+.img {
+    display: block;
+    max-width: 290px;
+    max-height: 310px;
+    margin: 0 auto;
+  }
+  
+  .text {
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .container {
+    text-align: center;
+  }

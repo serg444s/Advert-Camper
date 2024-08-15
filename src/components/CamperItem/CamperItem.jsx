@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import IconSvg from "../IconSvg/IconSvg";
 import css from "./CamperItem.module.css"
+import CamperModal from "../CamperModal/CamperModal";
 
 const CamperItem = ({ item }) => {
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
     
   const place = "https://www.google.com/maps/place";
 
@@ -39,7 +51,8 @@ const CamperItem = ({ item }) => {
 {item.location}
 </a>
         </div><p className={css.text}>{item.description}</p>
-            <button >Load More</button>
+            <button className={css.btn} onClick={openModal}>Show More</button>
+            <CamperModal modalIsOpen={showModal} closeModal={closeModal} item={item}/>
 
         </div>
       </div>
