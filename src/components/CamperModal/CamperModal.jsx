@@ -1,6 +1,8 @@
 import Modal from "react-modal";
 import css from "./CamperModal.module.css"
 import ReviewList from "../ReviewList/ReviewList";
+import Features from "../Features/Features";
+import { useState } from "react";
 
 const customStyles = {
     content: {
@@ -20,6 +22,16 @@ const customStyles = {
   Modal.setAppElement("#root");
 
   const CamperModal = ({ item, modalIsOpen, closeModal }) => {
+
+    const [visible, setVisible] = useState("")
+
+    const onReviews = () => {
+      setVisible("reviews")
+    }
+
+    const onFeatures = () => {
+      setVisible("features")
+    }
 
     const ImageGallery = (urls) => {
       if (urls.length > 0 ) {
@@ -44,8 +56,12 @@ const customStyles = {
       {item.gallery.length > 0 && ImageGallery(item.gallery)}
     </div>
           <p className={css.text}>Text{item.description}</p>
-          <ReviewList reviews={item.reviews}/>
-
+          <div className={css.btn}>
+            <button onClick={onReviews}>Reviews</button>
+            <button onClick={onFeatures}>Features</button>
+          </div>
+          {visible === "reviews" && <ReviewList reviews={item.reviews}/>}
+          {visible === "features" && <Features item={item}/>}
         </Modal>
         </div>
        

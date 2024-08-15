@@ -81,7 +81,6 @@ align-items: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* width: calc((100% - 24px) / 4);   */
         border-radius: 100px;
         gap: 8px;
 padding: 12px 18px;
