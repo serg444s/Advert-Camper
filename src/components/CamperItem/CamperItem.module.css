@@ -67,6 +67,28 @@ align-items: center;
     
 }
 
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* width: calc((100% - 24px) / 4);   */
+        border-radius: 100px;
+        gap: 8px;
+padding: 12px 18px;
+height: 44px;
+background: var(--dark-white);
+mix-blend-mode: multiply;
+
+    }
+}
+
 .btn {
     border: none;
     transition: all 0.25s ease;
@@ -78,6 +100,7 @@ width: 166px;
 height: 56px;
 background: var(--red);
 color:  var(--white);
+margin-top: 24px;
   }
   
   .btn:hover {

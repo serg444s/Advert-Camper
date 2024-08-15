@@ -20,14 +20,31 @@ const CamperItem = ({ item }) => {
 
   function getLocation(str) {
     const parts = str.split(',');
-    return parts[1].trim(); 
+    if (parts.length > 1) {
+      return parts[1].trim(); 
+    } else {
+      return parts;
+    }
   }
+  
+  const renderListItems = (obj) => {
+        return (<ul className={css.details}>
+          <li><IconSvg width={20} height={20} iconName={"adults"}/><p>{`${obj.adults} adults`}</p></li>
+          <li><IconSvg width={20} height={20} iconName={"automatic"}/><p>{obj.transmission}</p></li>
+          <li><IconSvg width={20} height={20} iconName={"petrol"}/><p>{obj.engine}</p></li>
+          <li><IconSvg width={20} height={20} iconName={"kitchen"}/><p>{`${obj.details.kitchen} kitchen`}</p></li>
+          <li><IconSvg width={20} height={20} iconName={"bed"}/><p>{`${obj.details.beds} beds`}</p></li>
+          <li><IconSvg width={20} height={20} iconName={"acmask"}/><p>{`${obj.details.airConditioner} AC`}</p></li>
+
+
+        </ul>)
+      }
 
     return (
       <div className={css.container}>
 
         <div className={css.imgwrap}>
-            <img src={item.gallery[0]}/>
+            <img src={item.gallery.length > 0 ? item.gallery[0] : "https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg"}/>
         </div>
         <div className={css.item}>
 
@@ -50,9 +67,11 @@ const CamperItem = ({ item }) => {
 <IconSvg width={16} height={16} iconName={"location"} />
 {item.location}
 </a>
-        </div><p className={css.text}>{item.description}</p>
+        </div>
+        <p className={css.text}>{item.description}</p>
+        {renderListItems(item)}
             <button className={css.btn} onClick={openModal}>Show More</button>
-            <CamperModal modalIsOpen={showModal} closeModal={closeModal} item={item}/>
+            {showModal && <CamperModal modalIsOpen={showModal} closeModal={closeModal} item={item}/>}
 
         </div>
       </div>
