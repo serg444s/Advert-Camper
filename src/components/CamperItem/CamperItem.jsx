@@ -55,7 +55,7 @@ const CamperItem = ({ item }) => {
         </div>
 
         <div className={css.location}>
-        <p>        <IconSvg width={16} height={16} iconName={"star"} />
+        <p className={css.reviews}>        <IconSvg width={16} height={16} iconName={"star"} />
         {item.rating} ({item.reviews.length} Reviews)</p>
 
 

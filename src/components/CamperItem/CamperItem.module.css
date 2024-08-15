@@ -91,6 +91,10 @@ mix-blend-mode: multiply;
     }
 }
 
+.reviews {
+text-decoration: underline;
+}
+
 .btn {
     border: none;
     transition: all 0.25s ease;
