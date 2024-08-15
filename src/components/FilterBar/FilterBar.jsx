@@ -1,6 +1,8 @@
+import LocationFilter from "../LocationFilter/LocationFilter";
+
 const FilterBar = () => { 
     return <div>
-        <h2>FilterBar</h2>
+        <LocationFilter/>
             </div>
 }
 export default FilterBar;
