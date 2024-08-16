@@ -23,3 +23,12 @@ export const selectFilteredCampers = createSelector(
       );
     }
   );
+
+  export const selectFilteredFavorites = createSelector(
+    [selectFilteredCampers, selectLocationFilter],
+    (campers, filter) => {
+      return campers.filter((camper) =>
+        camper.location.toLowerCase().includes(filter.toLowerCase())
+      );
+    }
+  );
