@@ -9,7 +9,7 @@ const HomePage = () => {
 
 <h1 className={css.title}>Discover the Freedom of the Open Road with Our Camper Rentals</h1>
 <div className={css.wrapper}>
-    <img src={url} alt="rent camper" className={css.img}/>
+    <img src={url} alt="rent camper"/>
 </div>
  <Link to="/catalog" className={css.link}>
         Select now
