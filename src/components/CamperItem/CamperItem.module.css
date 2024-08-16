@@ -119,3 +119,12 @@ margin-top: 24px;
   .btn:hover {
     background-color: var(--hover-red);
   }
+
+  .favorite {
+    fill: red;
+    stroke: red;
+  }
+
+  .black {
+    background-color: green;
+  }

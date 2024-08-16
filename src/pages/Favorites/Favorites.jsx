@@ -7,10 +7,8 @@ const Favorites = () => {
 
     const items = useSelector(selectFavoriteCampers);
     
-
-
     return <div>
-            {items.length > 0 && <CamperList items={items}/>}
+            {items.length > 0 && <CamperList items={items} addFavotite={true}/>}
 
     </div>
 }

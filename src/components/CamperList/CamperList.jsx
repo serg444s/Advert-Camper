@@ -2,7 +2,7 @@ import CamperItem from "../CamperItem/CamperItem";
 import css from "./CamperList.module.css"
 
 
-const CamperList = ({items}) => {
+const CamperList = ({items, addFavotite}) => {
 
 
 
@@ -11,7 +11,7 @@ const CamperList = ({items}) => {
         {items.length > 0 && items.map((item) => {
           return (
             <li key={item._id}>
-              <CamperItem item={item}/>
+              <CamperItem item={item} addFavotite={addFavotite}/>
             </li>
           );
         })}

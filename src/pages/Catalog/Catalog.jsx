@@ -10,6 +10,7 @@ import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
 
 const Catalog = () => { 
 
+
     const dispatch = useDispatch();
     const loading = useSelector(getCampersStatus);
     const error = useSelector(getCampersError);
