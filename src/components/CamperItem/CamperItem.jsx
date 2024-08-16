@@ -34,9 +34,7 @@ const CamperItem = ({ item }) => {
     }
   }
 
-  const onFavoriteAdd = (obj) => {
-    console.log(obj);
-    
+  const onFavoriteAdd = (obj) => {    
     dispatch(changeFavorite(obj));
     setIsFavorite(!isFavorite)
   };

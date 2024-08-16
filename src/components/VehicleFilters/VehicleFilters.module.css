@@ -14,9 +14,19 @@
     border: 2px solid;
     border-color: rgba(16, 24, 40, 0.1);
 border-radius: 10px;
-padding: 17px 40px;
 width: 112px;
 height: 95px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 5px;
+
+svg {
+    width: 32px;
+    height: 32px;;
+}
+
 }
 
 .title {
@@ -32,6 +42,14 @@ margin-bottom: 8px;
 font-size: 20px;
 line-height: 1.2;
 margin-top: 14px;
+}
+
+.iconTextWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .line {

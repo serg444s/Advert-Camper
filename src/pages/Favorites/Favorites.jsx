@@ -8,7 +8,6 @@ import css from "./Favorites.module.css"
 const Favorites = () => { 
 
     const items = useSelector(selectFilteredFavorites);
-    console.log("Favorites items", items);
 
     
     return <div className={css.container}>

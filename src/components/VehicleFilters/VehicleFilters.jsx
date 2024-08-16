@@ -31,11 +31,12 @@ const VehicleFilters = () => {
             name="airConditioner"
             checked={checked.airConditioner}
             onChange={handleCheckboxChange}
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
         />
-        
-        <IconSvg iconName={"acmask"} width={32} height={32}/>
-        
+        <div className={css.iconTextWrapper}>
+        <IconSvg iconName={"acmask"} width={30} height={30}/>
+        <span>AC</span>
+        </div>
     </label>
 
     <label className={css.label}>
@@ -44,10 +45,12 @@ const VehicleFilters = () => {
             name="automatic"
             checked={checked.automatic}
             onChange={handleCheckboxChange}
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
         />
-                <IconSvg iconName={"automatic"} width={32} height={32}/>
-
+                <div className={css.iconTextWrapper}>
+        <IconSvg iconName={"automatic"} width={32} height={32}/>
+        <span>Automatic</span>
+        </div>
     </label>
 
     <label className={css.label}>
@@ -56,9 +59,12 @@ const VehicleFilters = () => {
             name="kitchen"
             checked={checked.kitchen}
             onChange={handleCheckboxChange}
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
         />
-        <IconSvg iconName={"automatic"} width={32} height={32}/>
+                <div className={css.iconTextWrapper}>
+        <IconSvg iconName={"kitchen"} width={32} height={32}/>
+        <span>Kitchen</span>
+        </div>
     </label>
 
     <label className={css.label}>
@@ -67,9 +73,10 @@ const VehicleFilters = () => {
             name="TV"
             checked={checked.TV}
             onChange={handleCheckboxChange}
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
         />
-        <IconSvg iconName={"automatic"}/>
+        <IconSvg iconName={"tv"}/>
+        TV
     </label>
 
     <label className={css.label}>
@@ -78,9 +85,10 @@ const VehicleFilters = () => {
             name="shower"
             checked={checked.shower}
             onChange={handleCheckboxChange}
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
         />
-        <IconSvg iconName={"automatic"}/>
+        <IconSvg iconName={"shower"}/>
+        Shower/WC
     </label>
 </form>
 

@@ -22,7 +22,6 @@ const Catalog = () => {
       
 
       const items = useSelector(selectFilteredCampers);
-      console.log("cataog items", items);
       
 
 
