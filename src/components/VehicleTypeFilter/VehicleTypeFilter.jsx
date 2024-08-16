@@ -1,31 +1,43 @@
-import { useState } from "react";
 import css from "./VehicleTypeFilter.module.css"
 import IconSvg from "../IconSvg/IconSvg";
+import { useDispatch, useSelector } from "react-redux";
+import { changeType } from "../../redux/filtersSlice";
+import { selectTypeFilter } from "../../redux/selectors";
 
 const VehicleTypeFilter = () => { 
 
-    const [selectedOption, setSelectedOption] = useState('');
+    // const [selectedOption, setSelectedOption] = useState('');
 
 
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-      };
+    // const handleOptionChange = (event) => {
+    //     setSelectedOption(event.target.value);
+    //   };
 
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("Selected Camper Type:", selectedOption);
-      };
+      // const handleSubmit = (event) => {
+      //   event.preventDefault();
+      //   console.log("Selected Camper Type:", selectedOption);
+      // };
+
+      const dispatch = useDispatch();
+
+const typeFilter = useSelector(selectTypeFilter);
+
+const handleChange = (evt) => {
+    const value = evt.target.value;
+    console.log(value);
+    dispatch(changeType(value));
+  };
 
     return <div>
     <h3 className={css.name}>Vehicle type</h3>
     <div className={css.line}></div>
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form className={css.form}>
       <label className={css.label}>
         <input
           type="radio"
           value="alcove"
-          checked={selectedOption === "alcove"}
-          onChange={handleOptionChange}
+          checked={typeFilter === "alcove"}
+          onChange={handleChange}
           style={{ display: 'none' }}
 
         />
@@ -37,8 +49,8 @@ const VehicleTypeFilter = () => {
         <input
           type="radio"
           value="fullyIntegrated"
-          checked={selectedOption === "fullyIntegrated"}
-          onChange={handleOptionChange}
+          checked={typeFilter === "fullyIntegrated"}
+          onChange={handleChange}
           style={{ display: 'none' }}
 
         />
@@ -49,8 +61,8 @@ const VehicleTypeFilter = () => {
         <input
           type="radio"
           value="panelTruck"
-          checked={selectedOption === "panelTruck"}
-          onChange={handleOptionChange}
+          checked={typeFilter === "panelTruck"}
+          onChange={handleChange}
           style={{ display: 'none' }}
 
         />
