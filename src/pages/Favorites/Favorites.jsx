@@ -8,11 +8,13 @@ import css from "./Favorites.module.css"
 const Favorites = () => { 
 
     const items = useSelector(selectFilteredFavorites);
+    console.log("Favorites items", items);
+
     
     return <div className={css.container}>
             <FilterBar/>
 
-            {items.length > 0 && <CamperList items={items} addFavotite={true}/>}
+            {items.length > 0 && <CamperList items={items} />}
 
     </div>
 }
