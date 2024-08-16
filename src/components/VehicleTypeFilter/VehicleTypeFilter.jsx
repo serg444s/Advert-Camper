@@ -1,6 +1,6 @@
 import { useState } from "react";
 import css from "./VehicleTypeFilter.module.css"
-import IconSvg from "../components/IconSvg/IconSvg";
+import IconSvg from "../IconSvg/IconSvg";
 
 const VehicleTypeFilter = () => { 
 
