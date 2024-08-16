@@ -3,6 +3,7 @@ import css from "./CamperModal.module.css"
 import ReviewList from "../ReviewList/ReviewList";
 import Features from "../Features/Features";
 import { useState } from "react";
+import CamperForm from "../CamperForm/CamperForm";
 
 const customStyles = {
     content: {
@@ -23,14 +24,19 @@ const customStyles = {
 
   const CamperModal = ({ item, modalIsOpen, closeModal }) => {
 
-    const [visible, setVisible] = useState("")
+    const [visible, setVisible] = useState(true)
 
     const onReviews = () => {
-      setVisible("reviews")
+      setVisible(true)
     }
 
     const onFeatures = () => {
-      setVisible("features")
+      setVisible(false)
+    }
+
+    const closeAndDefolt = () => {
+      closeModal()
+      setVisible(true)
     }
 
     const ImageGallery = (urls) => {
@@ -47,7 +53,7 @@ const customStyles = {
       <div className={css.container}>
  <Modal
           isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          onRequestClose={closeAndDefolt}
           style={customStyles}
           contentLabel="Example Modal"
         >
@@ -61,8 +67,10 @@ const customStyles = {
             <button onClick={onFeatures}>Features</button>
           </div>
           <div className={css.line}></div>
-          {visible === "reviews" && <ReviewList reviews={item.reviews}/>}
-          {visible === "features" && <Features item={item}/>}
+          <div className={css.footermodal}>
+          {visible ? <ReviewList reviews={item.reviews}/> : <Features item={item}/>}
+            <CamperForm/>
+          </div>
         </Modal>
         </div>
        
