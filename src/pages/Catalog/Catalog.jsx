@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import CamperList from "../../components/CamperList/CamperList";
 import css from "./Catalog.module.css"
-import { getCampersError, getCampersStatus, selectAllCampers } from "../../redux/selectors";
+import { getCampersError, getCampersStatus, selectFilteredCampers } from "../../redux/selectors";
 import { useEffect, useState } from "react";
 import { fetchCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
@@ -21,7 +21,7 @@ const Catalog = () => {
       };
       
 
-      const items = useSelector(selectAllCampers);
+      const items = useSelector(selectFilteredCampers);
       const visible = items.length > 0;
 
 

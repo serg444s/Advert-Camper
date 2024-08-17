@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import CamperList from "../../components/CamperList/CamperList";
-import { selectFavoriteCampers } from "../../redux/selectors";
+import { selectFilteredFavorites } from "../../redux/selectors";
 // import FilterBar from "../../components/FilterBar/FilterBar";
 import css from "./Favorites.module.css"
 import FilterForm from "../../components/FilterForm/FilterForm";
@@ -8,7 +8,7 @@ import FilterForm from "../../components/FilterForm/FilterForm";
 
 const Favorites = () => { 
 
-    const items = useSelector(selectFavoriteCampers);
+    const items = useSelector(selectFilteredFavorites);
 const visible = items.length > 0;
 const text = "There are no campers in this list..."
     

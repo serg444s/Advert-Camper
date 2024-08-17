@@ -1,9 +1,14 @@
 import { Formik, Form, Field } from 'formik';
 import css from "./FilterForm.module.css"
 import IconSvg from '../IconSvg/IconSvg';
+import { changeFilter } from '../../redux/filtersSlice';
+import { useDispatch } from 'react-redux';
 
 
 const FilterForm = () => { 
+
+  const dispatch = useDispatch();
+
 
     const initialFilterValues = {
         location: '',
@@ -15,13 +20,19 @@ const FilterForm = () => {
         type: '',
       };
 
-      const handleFiltersSubmit = (values) => {
-        console.log('Form Values:', values);
-          };
+      // const handleFiltersSubmit = (values) => {
+      //   changeFilter(values)
+      //   console.log('Form Values:', values);
+      //     };
 
     return <Formik
     initialValues={initialFilterValues}
-    onSubmit={handleFiltersSubmit}
+    onSubmit={(values, { resetForm }) => {
+      dispatch(changeFilter(values))
+      console.log('Form Values:', values);
+        resetForm();
+        // window.location.reload();
+      }}
   >
    
       <Form className={css.form}>
@@ -109,7 +120,7 @@ const FilterForm = () => {
     <label className={css.radio}>
         <Field
           type="radio"
-          value="alcove"
+          value="panelTruck"
           name="type"
 
         //   checked={typeFilter === "alcove"}
@@ -140,7 +151,7 @@ const FilterForm = () => {
       <label className={css.radio}>
         <Field
           type="radio"
-          value="panelTruck"
+          value="alcove"
         //   checked={typeFilter === "panelTruck"}
         //   onChange={handleChange}
         name="type"

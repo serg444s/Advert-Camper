@@ -29,9 +29,9 @@ const CamperForm = () => {
         initialValues={{ name: '', email: '', bookingDate: '', comment: '' }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-        console.log("submit", values);
+        // console.log("submit", values);
         resetForm();
-        // window.location.reload();
+        window.location.reload();
       }}
       >
        
