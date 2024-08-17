@@ -3,7 +3,6 @@ import CamperList from "../../components/CamperList/CamperList";
 import FilterBar from "../../components/FilterBar/FilterBar";
 import css from "./Catalog.module.css"
 import { getCampersError, getCampersStatus, selectFilteredCampers } from "../../redux/selectors";
-import Loader from "../../components/Loader/Loader";
 import { useEffect, useState } from "react";
 import { fetchCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
@@ -31,19 +30,19 @@ const Catalog = () => {
       }, [dispatch, page]);
 
     return <div className={css.wrapper}>
-    {error && <p className={css.text}>Sorry. Sone went wrong...</p>}
+    {error && <p className={css.text}>Sorry. Some went wrong...</p>}
     <div className={css.container}> 
 
 
         <FilterBar/>
-        {loading ? <Loader/> : 
+      
         <div className={css.list}> 
 
 
 {visible ? <CamperList items={items}/> : <p className={css.text}>There are no campers in this list...</p>}
 {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
-</div>}
+</div>
 
         
     </div>
