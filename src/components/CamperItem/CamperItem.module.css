@@ -17,6 +17,7 @@ max-width: 888px;
     margin: 0 auto;
     display: flex;
     flex-wrap: nowrap;
+    margin-bottom: 4px;
 
     h2, h3 {
 font-weight: 600;
@@ -74,7 +75,14 @@ text-overflow: ellipsis;
     gap: 16px;
 margin-bottom: 24px;
 align-items: center;
+
     
+}
+
+.wrap {
+    display: flex;
+    height: 24px;
+    gap: 4px;
 }
 
 .details {
@@ -121,11 +129,3 @@ margin-top: 24px;
     background-color: var(--hover-red);
   }
 
-  .favorite {
-    fill: red;
-    stroke: red;
-  }
-
-  .black {
-    background-color: green;
-  }

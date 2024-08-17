@@ -15,6 +15,7 @@ const Catalog = () => {
     const error = useSelector(getCampersError);
 
     const [page, setPage] = useState(1);
+
     const onLoadMore = () => {
         setPage((prevPage) => prevPage + 1);
       };
@@ -29,7 +30,7 @@ const Catalog = () => {
         dispatch(fetchCampers(page));
       }, [dispatch, page]);
 
-    return <div className={css.wrapper}>
+    return <>
     {error && <p className={css.text}>Sorry. Some went wrong...</p>}
     <div className={css.container}> 
 
@@ -39,7 +40,7 @@ const Catalog = () => {
         <div className={css.list}> 
 
 
-{visible ? <CamperList items={items}/> : <p className={css.text}>There are no campers in this list...</p>}
+{visible && !loading ? <CamperList items={items}/> : <p className={css.text}>There are no campers in this list...</p>}
 {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
 </div>
@@ -48,7 +49,7 @@ const Catalog = () => {
     </div>
     
 
-    </div>
+    </>
     
 }
 export default Catalog;

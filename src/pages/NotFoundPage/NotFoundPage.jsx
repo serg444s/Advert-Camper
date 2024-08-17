@@ -16,7 +16,7 @@ const NotFoundPage = () => {
   }, [nav]);
 
 
-return <div className={css.container}>
+return <>
 <p className={css.text}>The page you are looking for may have been moved, deleted,
 or possibly never existed</p>
 <p className={css.text}>You will be returned to the main page in {time / 1000} seconds</p>
@@ -29,7 +29,7 @@ or possibly never existed</p>
 </div>
 
 
-</div>
+</>
 }
 
 export default NotFoundPage;
