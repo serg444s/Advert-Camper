@@ -9,8 +9,9 @@ const Navigation = () => {
     return clsx(css.link, isActive && css.active);
   };
 
-  return (
-    <nav className={css.nav}>
+  return ( <>
+
+<nav className={css.nav}>
       <NavLink to="/" className={buildLinkClass}>
         Home
       </NavLink>
@@ -21,6 +22,10 @@ const Navigation = () => {
       Favorites
       </NavLink>
     </nav>
+<div className={css.line}></div>
+
+  </>
+    
   );
 };
 

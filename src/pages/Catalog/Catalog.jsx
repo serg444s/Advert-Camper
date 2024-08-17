@@ -23,7 +23,6 @@ const Catalog = () => {
 
       const items = useSelector(selectFilteredCampers);
       const visible = items.length > 0;
-const text = "There are no campers in this list..."
 
 
 
@@ -31,8 +30,8 @@ const text = "There are no campers in this list..."
         dispatch(fetchCampers(page));
       }, [dispatch, page]);
 
-    return <div>
-    {error && <p>Sorry. Sone went wrong...</p>}
+    return <div className={css.wrapper}>
+    {error && <p className={css.text}>Sorry. Sone went wrong...</p>}
     <div className={css.container}> 
 
 
@@ -41,7 +40,7 @@ const text = "There are no campers in this list..."
         <div className={css.list}> 
 
 
-{visible ? <CamperList items={items}/> : <p className={css.text}>{text}</p>}
+{visible ? <CamperList items={items}/> : <p className={css.text}>There are no campers in this list...</p>}
 {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
 </div>}

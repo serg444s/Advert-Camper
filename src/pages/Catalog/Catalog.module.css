@@ -1,7 +1,9 @@
 .container {
     display: flex;
     gap: 64px;
+    width: 100%;
 }
+
 
 .list {
 display: flex;
