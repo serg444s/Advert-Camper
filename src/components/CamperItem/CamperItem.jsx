@@ -13,7 +13,12 @@ const CamperItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
-  const [isFavorite, setIsFavorite] = useState();
+  // const [isFavorite, setIsFavorite] = useState();
+
+  const [isFavorite, setIsFavorite] = useState(() => {
+    const storedValue = localStorage.getItem(`favorite-${item._id}`);
+    return storedValue ? JSON.parse(storedValue) : false;
+  });
 
 
   const openModal = () => {
@@ -28,9 +33,16 @@ const CamperItem = ({ item }) => {
 
 
 
-  const onFavoriteAdd = (obj) => {    
+  // const onFavoriteAdd = (obj) => {    
+  //   dispatch(changeFavorite(obj));
+  //   setIsFavorite(!isFavorite)
+  // };
+
+  const onFavoriteAdd = (obj) => {
+    const newFavoriteStatus = !isFavorite;
     dispatch(changeFavorite(obj));
-    setIsFavorite(!isFavorite)
+    setIsFavorite(newFavoriteStatus);
+    localStorage.setItem(`favorite-${item._id}`, JSON.stringify(newFavoriteStatus));
   };
   
   const renderListItems = (obj) => {
