@@ -31,17 +31,19 @@ const Catalog = () => {
       }, [dispatch, page]);
 
     return <div>
-    {loading && <Loader/>}
     {error && <p>Sorry. Sone went wrong...</p>}
     <div className={css.container}> 
 
 
         <FilterBar/>
-        <div className={css.list}> 
-        <CamperList items={items}/>
-        {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
+        {loading ? <Loader/> : <div className={css.list}> 
 
-        </div>
+<CamperList items={items}/>
+{!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
+
+</div>}
+
+        
     </div>
     
 

@@ -1,5 +1,6 @@
 import { Hourglass } from "react-loader-spinner";
 
+
 const Loader = () => {
   return (
     <Hourglass
@@ -9,7 +10,7 @@ const Loader = () => {
       ariaLabel="hourglass-loading"
       wrapperStyle={{}}
       wrapperClass=""
-      colors={["#306cce", "#72a1ed"]}
+      colors={["#E44848", "#72a1ed"]}
     />
   );
 };
