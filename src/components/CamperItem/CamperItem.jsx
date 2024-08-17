@@ -5,6 +5,7 @@ import css from "./CamperItem.module.css"
 import CamperModal from "../CamperModal/CamperModal";
 import { changeFavorite } from "../../redux/favoriteSlice";
 import { useDispatch } from "react-redux";
+import { getLocation } from "../../utils/getLocation";
 
 const CamperItem = ({ item }) => {
 
@@ -25,14 +26,7 @@ const CamperItem = ({ item }) => {
     
   const place = "https://www.google.com/maps/place";
 
-  function getLocation(str) {
-    const parts = str.split(',');
-    if (parts.length > 1) {
-      return parts[1].trim(); 
-    } else {
-      return parts;
-    }
-  }
+
 
   const onFavoriteAdd = (obj) => {    
     dispatch(changeFavorite(obj));
@@ -63,7 +57,9 @@ const CamperItem = ({ item }) => {
         <div className={css.title}>
             <h2>{item.name}</h2>
             <h3>{formatPrice(item.price)}</h3>
-            <button onClick={()=>{onFavoriteAdd(item)}} className={css.add}><IconSvg iconName={"hart"}/></button>
+            <button onClick={()=>{onFavoriteAdd(item)}} className={css.add}>
+            <IconSvg iconName={isFavorite ? "favorite" : "hart"}/>
+            </button>
         </div>
 
         <div className={css.location}>
@@ -83,7 +79,7 @@ const CamperItem = ({ item }) => {
         <p className={css.text}>{item.description}</p>
         {renderListItems(item)}
             <button className={css.btn} onClick={openModal}>Show More</button>
-            {showModal && <CamperModal modalIsOpen={showModal} closeModal={closeModal} item={item}/>}
+             <CamperModal modalIsOpen={showModal} closeModal={closeModal} item={item}/>
 
         </div>
       </div>

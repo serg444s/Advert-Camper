@@ -36,24 +36,17 @@ const CamperForm = () => {
       >
        
           <Form className={css.form}>
-            <div>
               <Field type="text" name="name" placeholder="Name" className={css.input}/>
               <ErrorMessage name="name"/>
-            </div>
+         
   
-            <div>
               <Field type="email" name="email" placeholder="Email" className={css.input}/>
               <ErrorMessage name="email"/>
-            </div>
   
-            <div>
               <Field type="date" name="bookingDate" placeholder="Booking date" className={css.input}/>
               <ErrorMessage name="bookingDate"/>
-            </div>
   
-            <div>
               <Field as="textarea" name="comment" placeholder="Comment" className={css.textarea}/>
-            </div>
   
             <button type="submit" className={css.btn}>
               Send

@@ -4,6 +4,9 @@ import ReviewList from "../ReviewList/ReviewList";
 import Features from "../Features/Features";
 import { useState } from "react";
 import CamperForm from "../CamperForm/CamperForm";
+import { formatPrice } from "../../utils/formatPrice";
+import IconSvg from "../IconSvg/IconSvg";
+import { getLocation } from "../../utils/getLocation";
 
 const customStyles = {
     content: {
@@ -16,11 +19,13 @@ const customStyles = {
       padding: "40px",
       width: "980px",
       height: "600px",
-
+      borderRadius: "20px",
     },
   };
 
   Modal.setAppElement("#root");
+  const place = "https://www.google.com/maps/place";
+
 
   const CamperModal = ({ item, modalIsOpen, closeModal }) => {
 
@@ -50,18 +55,36 @@ const customStyles = {
     };
 
     return (
-      <div className={css.container}>
  <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeAndDefolt}
           style={customStyles}
-          contentLabel="Example Modal"
-        >
-        
+        >      
+        {/* <div className={css.container}> */}
+        <div className={css.header}>
+        <h2 className={css.name}>{item.name}</h2>
+        <button   onClick={closeAndDefolt} className={css.btnclose}>
+<IconSvg iconName={"close"}/></button>
+        </div>
+<div className={css.location}>
+        <p className={css.reviews}><IconSvg width={16} height={16} iconName={"star"} />
+        {item.rating} ({item.reviews.length} Reviews)
+        </p>
+<a 
+  href={`${place}/${getLocation(item.location)}`} 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+<IconSvg width={16} height={16} iconName={"location"} />
+{item.location}
+</a>
+</div>
+        <h3 className={css.price}>{formatPrice(item.price)}</h3>
+
         <div className={css.gallery}>
       {item.gallery.length > 0 && ImageGallery(item.gallery)}
     </div>
-          <p className={css.text}>Text{item.description}</p>
+          <p className={css.text}>{item.description}</p>
           <div className={css.btn}>
             <button onClick={onReviews}>Reviews</button>
             <button onClick={onFeatures}>Features</button>
@@ -71,8 +94,9 @@ const customStyles = {
           {visible ? <ReviewList reviews={item.reviews}/> : <Features item={item}/>}
             <CamperForm/>
           </div>
+          {/* </div> */}
+
         </Modal>
-        </div>
        
     );
   };

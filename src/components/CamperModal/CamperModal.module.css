@@ -4,8 +4,52 @@
 .container  {
   /* border-radius: 20px;
 padding: 40px; */
-width: 982px;
-height: 720px;
+/* width: 982px;
+height: 720px; */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.btnclose {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+
+  svg {
+    margin-right: 4px;
+  }
+}
+.name {
+  font-weight: 600;
+font-size: 24px;
+line-height: 1.25;
+margin-bottom: 10px;
+}
+
+.reviews {
+  text-decoration: underline;
+
+}
+
+.price {
+  font-weight: 600;
+font-size: 24px;
+line-height: 125%;
+margin-bottom: 24px;
 }
 
 .gallery {
