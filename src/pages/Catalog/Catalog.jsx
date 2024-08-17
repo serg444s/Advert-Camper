@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import CamperList from "../../components/CamperList/CamperList";
-import FilterBar from "../../components/FilterBar/FilterBar";
 import css from "./Catalog.module.css"
-import { getCampersError, getCampersStatus, selectFilteredCampers } from "../../redux/selectors";
+import { getCampersError, getCampersStatus, selectAllCampers } from "../../redux/selectors";
 import { useEffect, useState } from "react";
 import { fetchCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
+import FilterForm from "../../components/FilterForm/FilterForm";
 
 const Catalog = () => { 
 
@@ -21,7 +21,7 @@ const Catalog = () => {
       };
       
 
-      const items = useSelector(selectFilteredCampers);
+      const items = useSelector(selectAllCampers);
       const visible = items.length > 0;
 
 
@@ -35,8 +35,8 @@ const Catalog = () => {
     <div className={css.container}> 
 
 
-        <FilterBar/>
-      
+        {/* <FilterBar/> */}
+      <FilterForm/>
         <div className={css.list}> 
 
 

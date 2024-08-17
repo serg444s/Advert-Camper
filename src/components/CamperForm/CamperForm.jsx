@@ -31,7 +31,7 @@ const CamperForm = () => {
         onSubmit={(values, { resetForm }) => {
         console.log("submit", values);
         resetForm();
-        window.location.reload();
+        // window.location.reload();
       }}
       >
        
