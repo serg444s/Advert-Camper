@@ -19,6 +19,8 @@ const CamperForm = () => {
         comment: Yup.string(),
       });
 
+
+
     return (<div className={css.container}>
         <h3 className={css.title}>Book your campervan now</h3>
         <p className={css.text}>Stay connected! We are always ready to help you.</p>
@@ -26,41 +28,38 @@ const CamperForm = () => {
         <Formik
         initialValues={{ name: '', email: '', bookingDate: '', comment: '' }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          // Эмуляция отправки формы
-          setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            window.location.reload(); // Обновление страницы после отправки формы
-          }, 400);
-        }}
+        onSubmit={(values, { resetForm }) => {
+        console.log("submit", values);
+        resetForm();
+        window.location.reload();
+      }}
       >
-        {({ isSubmitting }) => (
+       
           <Form className={css.form}>
             <div>
               <Field type="text" name="name" placeholder="Name" className={css.input}/>
-              <ErrorMessage name="name" as="span" style={{ color: 'red' }} />
+              <ErrorMessage name="name"/>
             </div>
   
             <div>
               <Field type="email" name="email" placeholder="Email" className={css.input}/>
-              <ErrorMessage name="email" as="span" style={{ color: 'red' }} />
+              <ErrorMessage name="email"/>
             </div>
   
             <div>
               <Field type="date" name="bookingDate" placeholder="Booking date" className={css.input}/>
-              <ErrorMessage name="bookingDate" as="span" style={{ color: 'red' }} />
+              <ErrorMessage name="bookingDate"/>
             </div>
   
             <div>
               <Field as="textarea" name="comment" placeholder="Comment" className={css.textarea}/>
             </div>
   
-            <button type="submit" disabled={isSubmitting} className={css.btn}>
+            <button type="submit" className={css.btn}>
               Send
             </button>
           </Form>
-        )}
+       
       </Formik>
     </div>
     

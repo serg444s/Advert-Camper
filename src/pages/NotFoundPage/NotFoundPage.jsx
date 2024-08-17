@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import css from "./NotFoundPage.module.css"
 import { useEffect } from "react";
+import url from "../../assets/img/404.jpg"
 
 const NotFoundPage = () => { 
 
@@ -14,7 +15,6 @@ const NotFoundPage = () => {
     return () => clearTimeout(index);
   }, [nav]);
 
-    const url = "https://indexsy.com/wp-content/uploads/2023/05/What-is-404-error.jpg"
 
 return <div className={css.container}>
 <p className={css.text}>The page you are looking for may have been moved, deleted,

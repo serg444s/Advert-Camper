@@ -8,12 +8,13 @@ import css from "./Favorites.module.css"
 const Favorites = () => { 
 
     const items = useSelector(selectFilteredFavorites);
-
+const visible = items.length > 0;
+const text = "There are no campers in this list..."
     
     return <div className={css.container}>
             <FilterBar/>
 
-            {items.length > 0 && <CamperList items={items} />}
+            {visible > 0 ? <CamperList items={items} /> : <p className={css.text}>{text}</p>}
 
     </div>
 }

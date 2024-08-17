@@ -6,25 +6,12 @@ import { selectTypeFilter } from "../../redux/selectors";
 
 const VehicleTypeFilter = () => { 
 
-    // const [selectedOption, setSelectedOption] = useState('');
-
-
-    // const handleOptionChange = (event) => {
-    //     setSelectedOption(event.target.value);
-    //   };
-
-      // const handleSubmit = (event) => {
-      //   event.preventDefault();
-      //   console.log("Selected Camper Type:", selectedOption);
-      // };
-
       const dispatch = useDispatch();
 
 const typeFilter = useSelector(selectTypeFilter);
 
 const handleChange = (evt) => {
     const value = evt.target.value;
-    console.log(value);
     dispatch(changeType(value));
   };
 
@@ -38,7 +25,7 @@ const handleChange = (evt) => {
           value="alcove"
           checked={typeFilter === "alcove"}
           onChange={handleChange}
-          style={{ display: 'none' }}
+          // style={{ display: 'none' }}
 
         />
         <IconSvg iconName={"camper3"} width={40} height={28}/>
@@ -51,7 +38,7 @@ const handleChange = (evt) => {
           value="fullyIntegrated"
           checked={typeFilter === "fullyIntegrated"}
           onChange={handleChange}
-          style={{ display: 'none' }}
+          // style={{ display: 'none' }}
 
         />
         <IconSvg iconName={"camper2"} width={40} height={28}/>
@@ -63,7 +50,7 @@ const handleChange = (evt) => {
           value="panelTruck"
           checked={typeFilter === "panelTruck"}
           onChange={handleChange}
-          style={{ display: 'none' }}
+          // style={{ display: 'none' }}
 
         />
         <IconSvg iconName={"camper3"} width={40} height={28}/>

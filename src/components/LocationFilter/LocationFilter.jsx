@@ -17,7 +17,7 @@ const handleChange = (evt) => {
   Location
   <input
         type="text"
-        placeholder="Kyiv, Ukraine"
+        placeholder="City"
         value={locationFilter}
         onChange={handleChange}
         className={css.input}

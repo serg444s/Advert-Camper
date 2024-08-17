@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import css from "./HomePage.module.css"
+import url from "../../assets/img/camper.jpg"
+
 
 const HomePage = () => { 
 
-    const url = "https://images.prom.ua/3968330539_w640_h640_3968330539.jpg"
 
     return <div className={css.container}>
 

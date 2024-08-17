@@ -22,7 +22,8 @@ const Catalog = () => {
       
 
       const items = useSelector(selectFilteredCampers);
-      
+      const visible = items.length > 0;
+const text = "There are no campers in this list..."
 
 
 
@@ -36,9 +37,11 @@ const Catalog = () => {
 
 
         <FilterBar/>
-        {loading ? <Loader/> : <div className={css.list}> 
+        {loading ? <Loader/> : 
+        <div className={css.list}> 
 
-<CamperList items={items}/>
+
+{visible ? <CamperList items={items}/> : <p className={css.text}>{text}</p>}
 {!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
 </div>}
