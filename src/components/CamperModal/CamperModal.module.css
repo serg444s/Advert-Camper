@@ -1,13 +1,6 @@
 @import url('/src/utils//variables.css');
 
 
-.container  {
-  /* border-radius: 20px;
-padding: 40px; */
-/* width: 982px;
-height: 720px; */
-}
-
 .header {
   display: flex;
   justify-content: space-between;

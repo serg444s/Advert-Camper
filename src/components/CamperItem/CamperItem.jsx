@@ -13,7 +13,6 @@ const CamperItem = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
-  // const [isFavorite, setIsFavorite] = useState();
 
   const [isFavorite, setIsFavorite] = useState(() => {
     const storedValue = localStorage.getItem(`favorite-${item._id}`);
@@ -32,11 +31,6 @@ const CamperItem = ({ item }) => {
   const place = "https://www.google.com/maps/place";
 
 
-
-  // const onFavoriteAdd = (obj) => {    
-  //   dispatch(changeFavorite(obj));
-  //   setIsFavorite(!isFavorite)
-  // };
 
   const onFavoriteAdd = (obj) => {
     const newFavoriteStatus = !isFavorite;

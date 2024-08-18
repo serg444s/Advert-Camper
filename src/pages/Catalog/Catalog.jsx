@@ -41,7 +41,6 @@ const lastPage = useSelector(selectLastPage);
         dispatch(getStartCampers());
 }
       
-      
 
     }, [dispatch, page]);
 
@@ -50,15 +49,10 @@ const lastPage = useSelector(selectLastPage);
     };
 
 
-
- 
-
     return <>
     {error && <p className={css.text}>Sorry. Some went wrong...</p>}
     <div className={css.container}> 
 
-
-        {/* <FilterBar/> */}
       <FilterForm/>
         <div className={css.list}> 
 

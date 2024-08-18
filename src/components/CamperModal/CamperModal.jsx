@@ -60,7 +60,6 @@ const customStyles = {
           onRequestClose={closeAndDefolt}
           style={customStyles}
         >      
-        {/* <div className={css.container}> */}
         <div className={css.header}>
         <h2 className={css.name}>{item.name}</h2>
         <button   onClick={closeAndDefolt} className={css.btnclose}>
@@ -94,7 +93,6 @@ const customStyles = {
           {visible ? <ReviewList reviews={item.reviews}/> : <Features item={item}/>}
             <CamperForm/>
           </div>
-          {/* </div> */}
 
         </Modal>
        

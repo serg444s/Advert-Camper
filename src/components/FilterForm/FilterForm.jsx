@@ -20,10 +20,7 @@ const FilterForm = () => {
         type: '',
       };
 
-      // const handleFiltersSubmit = (values) => {
-      //   changeFilter(values)
-      //   console.log('Form Values:', values);
-      //     };
+  
 
     return <Formik
     initialValues={initialFilterValues}
@@ -31,7 +28,6 @@ const FilterForm = () => {
       dispatch(changeFilter(values))
       console.log('Form Values:', values);
         resetForm();
-        // window.location.reload();
       }}
   >
    
@@ -51,8 +47,6 @@ const FilterForm = () => {
             type="checkbox"
             name="airConditioner"
             style={{ display: 'none' }}
-
-            // checked={checked.airConditioner}
         />
         <div className={css.iconTextWrapper}>
         <IconSvg iconName={"acmask"} width={30} height={30}/>
@@ -65,8 +59,6 @@ const FilterForm = () => {
             type="checkbox"
             name="automatic"
             style={{ display: 'none' }}
-
-            // checked={checked.automatic}
         />
                 <div className={css.iconTextWrapper}>
         <IconSvg iconName={"automatic"} width={32} height={32}/>
@@ -79,8 +71,6 @@ const FilterForm = () => {
             type="checkbox"
             name="kitchen"
             style={{ display: 'none' }}
-
-            // checked={checked.kitchen}
         />
                 <div className={css.iconTextWrapper}>
         <IconSvg iconName={"kitchen"} width={32} height={32}/>
@@ -93,8 +83,6 @@ const FilterForm = () => {
             type="checkbox"
             name="TV"
             style={{ display: 'none' }}
-
-            // checked={checked.TV}
         />
         <IconSvg iconName={"tv"}/>
         TV
@@ -105,8 +93,6 @@ const FilterForm = () => {
             type="checkbox"
             name="shower"
             style={{ display: 'none' }}
-
-            // checked={checked.shower}
         />
         <IconSvg iconName={"shower"}/>
         Shower/WC
@@ -122,9 +108,6 @@ const FilterForm = () => {
           type="radio"
           value="panelTruck"
           name="type"
-
-        //   checked={typeFilter === "alcove"}
-        //   onChange={handleChange}
           style={{ display: 'none' }}
 
         />
@@ -137,8 +120,6 @@ const FilterForm = () => {
         <Field
           type="radio"
           value="fullyIntegrated"
-        //   checked={typeFilter === "fullyIntegrated"}
-        //   onChange={handleChange}
         name="type"
           style={{ display: 'none' }}
 
@@ -152,8 +133,6 @@ const FilterForm = () => {
         <Field
           type="radio"
           value="alcove"
-        //   checked={typeFilter === "panelTruck"}
-        //   onChange={handleChange}
         name="type"
           style={{ display: 'none' }}
 
