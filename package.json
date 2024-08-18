@@ -1,6 +1,7 @@
 {
   "name": "advert-camper",
   "private": true,
+  "homepage": "https://serg444s.github.io/Advert-Camper/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

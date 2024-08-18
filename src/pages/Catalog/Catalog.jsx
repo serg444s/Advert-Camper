@@ -3,7 +3,7 @@ import CamperList from "../../components/CamperList/CamperList";
 import css from "./Catalog.module.css"
 import { getCampersError, getCampersStatus, selectFilteredCampers, selectPage, selectLastPage } from "../../redux/selectors";
 import { useEffect } from "react";
-import { fetchCampers, getStartCampers } from "../../redux/operations";
+import { getStartCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import { incrementPage } from "../../redux/campersSlice";
