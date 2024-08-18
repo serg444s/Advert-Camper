@@ -40,6 +40,10 @@ const campersSlice = createSlice({
       .addCase(getStartCampers.fulfilled,  (state, action) => {
         state.loading = false;
         state.campers = action.payload;
+        state.lastPage = false;
+        state.page = 1;
+
+        
       })
       .addCase(getStartCampers.rejected, handleRejected)
       .addCase(fetchCampers.pending, handlePending)

@@ -7,17 +7,19 @@ import { fetchCampers, getStartCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
 import FilterForm from "../../components/FilterForm/FilterForm";
 import { incrementPage } from "../../redux/campersSlice";
+import { changeFilter } from "../../redux/filtersSlice";
 
 const Catalog = () => { 
 
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const loading = useSelector(getCampersStatus);
     const error = useSelector(getCampersError);
     const items = useSelector(selectFilteredCampers);
     const visible = items.length > 0;
-const page = useSelector(selectPage)
+// const page = useSelector(selectPage)
 const lastPage = useSelector(selectLastPage);
+const dispatch = useDispatch();
 
 
     // const [page, setPage] = useState(1);
@@ -34,18 +36,41 @@ const lastPage = useSelector(selectLastPage);
     // }, [dispatch]);
 
 
-    useEffect(() => {
-      if (page > 1) {
-        dispatch(fetchCampers(page));
-      } else {
-        dispatch(getStartCampers());
-}
+//     useEffect(() => {
+//       if (page > 1) {
+//         dispatch(fetchCampers(page));
+//       } else {
+//         dispatch(getStartCampers());
+// }
       
 
-    }, [dispatch, page]);
+//     }, [dispatch, page]);
+const page = useSelector(selectPage)
+
+
+useEffect(() => {
+  if (page === 1 ) {
+    dispatch(getStartCampers());
+
+  }
+}, [dispatch, page]);
+
+const initialFilterValues = {
+  location: '',
+  airConditioner: false,
+  automatic: false,
+  kitchen: false,
+  TV: false,
+  shower: false,
+  type: '',
+};
+
+
 
     const onLoadMore = () => {
       dispatch(incrementPage());
+      dispatch(changeFilter(initialFilterValues))
+
     };
 
 
