@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import CamperList from "../../components/CamperList/CamperList";
 import css from "./Catalog.module.css"
-import { getCampersError, getCampersStatus, selectFilteredCampers } from "../../redux/selectors";
-import { useEffect, useState } from "react";
-import { fetchCampers } from "../../redux/operations";
+import { getCampersError, getCampersStatus, selectFilteredCampers, selectPage, selectLastPage } from "../../redux/selectors";
+import { useEffect } from "react";
+import { fetchCampers, getStartCampers } from "../../redux/operations";
 import { LoadMoreBtn } from "../../components/LoadMoreBtn/LoadMoreBtn";
 import FilterForm from "../../components/FilterForm/FilterForm";
+import { incrementPage } from "../../redux/campersSlice";
 
 const Catalog = () => { 
 
@@ -13,22 +14,44 @@ const Catalog = () => {
     const dispatch = useDispatch();
     const loading = useSelector(getCampersStatus);
     const error = useSelector(getCampersError);
+    const items = useSelector(selectFilteredCampers);
+    const visible = items.length > 0;
+const page = useSelector(selectPage)
+const lastPage = useSelector(selectLastPage);
 
-    const [page, setPage] = useState(1);
 
-    const onLoadMore = () => {
-        setPage((prevPage) => prevPage + 1);
-      };
-      
+    // const [page, setPage] = useState(1);
 
-      const items = useSelector(selectFilteredCampers);
-      const visible = items.length > 0;
 
+    // const onLoadMore = () => {
+    //     setPage((prevPage) => prevPage + 1);
+    //   };
+
+    //     useEffect(() => {
+    //   dispatch(getStartCampers());
+    //       console.log('useEffect page:', page);
+
+    // }, [dispatch]);
 
 
     useEffect(() => {
+      if (page > 1) {
         dispatch(fetchCampers(page));
-      }, [dispatch, page]);
+      } else {
+        dispatch(getStartCampers());
+}
+      
+      
+
+    }, [dispatch, page]);
+
+    const onLoadMore = () => {
+      dispatch(incrementPage());
+    };
+
+
+
+ 
 
     return <>
     {error && <p className={css.text}>Sorry. Some went wrong...</p>}
@@ -41,7 +64,7 @@ const Catalog = () => {
 
 
 {visible && !loading ? <CamperList items={items}/> : <p className={css.text}>There are no campers in this list...</p>}
-{!loading && <LoadMoreBtn onLoadMore={onLoadMore}/>}
+{!loading && !lastPage && <LoadMoreBtn onLoadMore={onLoadMore}/>}
 
 </div>
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers } from "./operations";
+import { fetchCampers, getStartCampers } from "./operations";
 
 const handlePending = (state) => {
   state.loading = true;
@@ -10,24 +10,15 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-// const campersSlice = createSlice({
-//   name: "campers",
-//   initialState: {
-//     items: [],
-//     loading: false,
-//     error: null,
-//   },
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(fetchCampers.pending, handlePending)
-//       .addCase(fetchCampers.fulfilled, (state, action) => {
-//         state.loading = false;
-//         state.error = null;
-//         state.items = action.payload;
-//       })
-//       .addCase(fetchCampers.rejected, handleRejected)
-//   },
-// });
+const handleFulfilled = (state, action) => {
+  state.loading = false;
+  state.error = null;
+  state.campers = [...state.campers, ...action.payload];
+  if (action.payload.length < 4) {
+    state.lastPage = true;
+  }
+};
+
 
 const campersSlice = createSlice({
   name: 'campers',
@@ -35,21 +26,27 @@ const campersSlice = createSlice({
   campers: [],
  loading: false,
  error: null,
+ page: 1,
+ lastPage: false,
   },
-  reducers: {},
+  reducers: {
+    incrementPage(state) {
+      state.page += 1;
+    }
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCampers.pending, handlePending)
-      .addCase(fetchCampers.fulfilled, (state, action) => {
+    .addCase(getStartCampers.pending, handlePending)
+      .addCase(getStartCampers.fulfilled,  (state, action) => {
         state.loading = false;
-        state.error = null;
         state.campers = action.payload;
-        // state.campers = [...state.campers, ...action.payload];
       })
+      .addCase(getStartCampers.rejected, handleRejected)
+      .addCase(fetchCampers.pending, handlePending)
+      .addCase(fetchCampers.fulfilled, handleFulfilled)
       .addCase(fetchCampers.rejected, handleRejected);
   },
 });
 
-// export default campersSlice.reducer;
-
+export const { incrementPage } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;
